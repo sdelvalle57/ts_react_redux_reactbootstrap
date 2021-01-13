@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Head from 'next/head'
-import { Container} from 'semantic-ui-react';
+import { Container} from 'react-bootstrap';
 import Favicon from 'react-favicon';
 
 class StoreLayout extends Component {
@@ -12,7 +12,7 @@ class StoreLayout extends Component {
                 <Head>
                     <link 
                         rel="stylesheet" 
-                        href="/static/semantic/dist/semantic.min.css" />
+                        href="/static/css/index.css" />
                 </Head>
                 {this.props.children}
             </Container>
