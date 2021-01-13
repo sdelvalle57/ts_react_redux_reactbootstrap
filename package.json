@@ -1,27 +1,14 @@
 {
-  "name": "next8_firebase_react_redux_boilerplate",
+  "name": "nextjs_firebase_react_redux_typescript_boilerplate",
   "version": "1.0.0",
   "engines": {
     "node": "8"
   },
   "scripts": {
-    "deploy-all": "npm run predeploy && firebase deploy",
     "dev": "npm run change-dev-env && node \"src/app/server.js\"",
     "prod": "npm run change-prod-env && node \"src/app/server.js\"",
-    "predeploy": "npm run change-prod-env && npm run build-public && npm run copy-static && npm run build-funcs && npm run build-app && npm run copy-deps",
-    "build-public": "cpx \"src/public/**/*.*\" \"dist/public\" -C",
-    "build-funcs": "babel \"src/functions\" --out-dir \"dist/functions\" && npm run copy-func-files",
-    "build-app": "next build \"src/app/\"",
-    "copy-static": "cpx \"src/app/static/**/*\" \"dist/public/static/\" -C",
-    "copy-func-files": "npm run copy-credentials && npm run copy-routes && npm run copy-server",
-    "copy-credentials": "cpx \"src/app/credentials**/*.*\" \"dist/functions\" -C",
-    "copy-routes": "cpx \"src/app/routes.js\" \"dist/functions\" -C",
-    "copy-server": "cpx \"src/app/express_server.js\" \"dist/functions\" -C",
-    "copy-deps": "cpx \"*{package.json,package-lock.json}\" \"dist/functions\" -C",
     "change-dev-env": "cp .env.dev .env",
-    "change-prod-env": "cp .env.prod .env",
-    "change-prod-env-lx": "cp .env.prod .env",
-    "install-deps": "cd \"dist/functions\" && npm i"
+    "change-prod-env": "cp .env.prod .env"
   },
   "dependencies": {
     "@babel/runtime": "7.4.3",
@@ -29,9 +16,9 @@
     "axios": "^0.18.0",
     "body-parser": "^1.18.3",
     "connect-session-firebase": "^5.13.0",
-    "firebase": "^8.2.2",
-    "firebase-admin": "^9.4.2",
-    "firebase-functions": "^3.13.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "helmet": "^3.14.0",
     "next": "^10.0.5",
     "next-routes": "^1.4.2",
@@ -44,6 +31,7 @@
     "redux-devtools-extension": "^2.13.8",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
+    "request": "^2.88.2",
     "request-promise": "^4.2.6",
     "session-file-store": "^1.5.0",
     "webpack": "^4.29.6"
@@ -55,7 +43,6 @@
     "@babel/preset-env": "7.4.3",
     "@babel/runtime": "7.4.3",
     "cpx": "^1.5.0",
-    "firebase-tools": "^9.2.0",
     "prettier": "1.12.1",
     "rimraf": "2.6.2"
   }

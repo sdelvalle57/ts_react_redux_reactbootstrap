@@ -1,6 +1,6 @@
 import {Container} from 'react-bootstrap';
 
-export default ({ lastUpdate, light }) => {
+const Clock = ({ lastUpdate, light }) => {
   return (
 
     <Container className= {light ? 'light clock' : 'clock'}>
@@ -9,6 +9,8 @@ export default ({ lastUpdate, light }) => {
     </Container>
   )
 }
+
+export default Clock;
 
 const format = t => `${pad(t.getUTCHours())}:${pad(t.getUTCMinutes())}:${pad(t.getUTCSeconds())}`
 
