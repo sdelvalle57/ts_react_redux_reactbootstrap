@@ -8,7 +8,7 @@ class Index extends Component {
   static getInitialProps ({ reduxStore, req }) {
     const isServer = !!req
     reduxStore.dispatch(serverRenderClock(isServer))
-    return {}
+    return { isServer }
   }
 
   componentDidMount () {
@@ -31,7 +31,6 @@ class Index extends Component {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  console.log(dispatch)
   return{
     startCounter: () => dispatch(startClock())
   }

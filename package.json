@@ -33,19 +33,19 @@
     "firebase-admin": "^9.4.2",
     "firebase-functions": "^3.13.0",
     "helmet": "^3.14.0",
-    "next": "^8.1.0",
+    "next": "^10.0.5",
     "next-routes": "^1.4.2",
-    "react": "16.8.6",
+    "react": "^17.0.1",
     "react-bootstrap": "^1.4.3",
-    "react-dom": "16.8.6",
-    "react-favicon": "0.0.14",
-    "react-redux": "^7.0.2",
-    "redux": "^4.0.1",
-    "redux-devtools-extension": "^2.13.2",
+    "react-dom": "^17.0.1",
+    "react-favicon": "0.0.18",
+    "react-redux": "^7.2.2",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.8",
     "redux-promise": "^0.6.0",
     "redux-thunk": "^2.3.0",
     "request-promise": "^4.2.6",
-    "session-file-store": "^1.2.0",
+    "session-file-store": "^1.5.0",
     "webpack": "^4.29.6"
   },
   "license": "ISC",
@@ -57,7 +57,6 @@
     "cpx": "^1.5.0",
     "firebase-tools": "^9.2.0",
     "prettier": "1.12.1",
-    "rimraf": "2.6.2",
-    "semantic-ui": "^2.4.0"
+    "rimraf": "2.6.2"
   }
 }

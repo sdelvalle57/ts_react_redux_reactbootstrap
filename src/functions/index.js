@@ -7,6 +7,5 @@ const handle = nextApp.getRequestHandler()
 
 /** Nextjs deployment */
 exports.next = functions.https.onRequest((req, res) => {
-  console.log('File: ' + req.originalUrl);
   return nextApp.prepare().then(() => handle(req, res))
 });

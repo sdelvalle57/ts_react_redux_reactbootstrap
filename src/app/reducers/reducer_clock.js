@@ -5,7 +5,7 @@ const initialState = {
     light: false
 }
 
-export default function(state = initialState, action) {
+export default function Clock_Reducer(state = initialState, action) {
     switch (action.type) {
         case TICK:  
             return {
