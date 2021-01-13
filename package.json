@@ -5,8 +5,8 @@
     "node": "8"
   },
   "scripts": {
-    "dev": "npm run change-dev-env && node \"src/app/server.js\"",
-    "prod": "npm run change-prod-env && node \"src/app/server.js\"",
+    "dev": "npm run change-dev-env && node \"app/server.js\"",
+    "prod": "npm run change-prod-env && node \"app/server.js\"",
     "change-dev-env": "cp .env.dev .env",
     "change-prod-env": "cp .env.prod .env"
   },

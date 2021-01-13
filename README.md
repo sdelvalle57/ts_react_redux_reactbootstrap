@@ -1,7 +1,6 @@
 # nextjs10.0.5
 # React
 # Redux
-# Firebase
 # React Bootstrap
 # Typescript
 
