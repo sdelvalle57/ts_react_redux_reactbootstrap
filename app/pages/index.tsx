@@ -1,10 +1,24 @@
-import React, {Component} from 'react'
+import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
 import {startClock, serverRenderClock} from '../actions/action_clock';
-import Clock from '../components/clock';
+import ClockComponent from '../components/clock';
 import Counter from '../components/counter';
+import { Clock } from '../types/store';
 
-class Index extends Component {
+interface StateProps {
+  clock: Clock
+}
+
+interface DispatchProps {
+  startCounter: () => Promise<any>
+}
+
+type Props = StateProps & DispatchProps;
+
+class Index extends PureComponent<Props> {
+
+  readonly timer;
+
   static getInitialProps ({ reduxStore, req }) {
     const isServer = !!req
     reduxStore.dispatch(serverRenderClock(isServer))
@@ -23,7 +37,7 @@ class Index extends Component {
     const {clock} = this.props;
     return (
       <div>
-        <Clock lastUpdate={clock.lastUpdate} light={clock.light} />
+        <ClockComponent lastUpdate={clock.lastUpdate} light={clock.light} />
         <Counter />
       </div>
     );

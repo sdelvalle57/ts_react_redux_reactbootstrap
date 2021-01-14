@@ -1,10 +1,11 @@
 import {INCREMENT, DECREMENT, RESET} from '../actions/types';
+import { Counter } from '../types/store';
 
-const initialState = {
+const initialState: Counter = {
     count:0
 }
 
-export default function Counter_Reducer(state = initialState, action) {
+export default function Counter_Reducer(state = initialState, action): Counter {
     switch (action.type) {
         case INCREMENT:
             return {

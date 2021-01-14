@@ -1,6 +1,10 @@
 import React from 'react'
 
-export default class Error extends React.Component {
+interface StateProps {
+  statusCode: number
+}
+
+export default class Error extends React.PureComponent<StateProps> {
   static getInitialProps({ res, err }) {
     const statusCode = res ? res.statusCode : err ? err.statusCode : null;
     return { statusCode }

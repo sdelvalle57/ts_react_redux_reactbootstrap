@@ -1,8 +1,21 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
 import { incrementCount, decrementCount, resetCount } from '../actions/action_counter';
+import { Counter } from '../types/store';
 
-class Counter extends Component {
+interface StateProps {
+  counter: Counter
+}
+
+interface DispatchProps {
+  increment: () => Promise<any>,
+  decrement: () => Promise<any>,
+  reset: () => Promise<any>
+}
+
+type Props = StateProps & DispatchProps;
+
+class CounterComponent extends Component<Props> {
  
   render () {
     const { counter } = this.props
@@ -30,4 +43,4 @@ function mapStateToProps (state) {
   return {counter}
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Counter)
+export default connect(mapStateToProps, mapDispatchToProps)(CounterComponent)

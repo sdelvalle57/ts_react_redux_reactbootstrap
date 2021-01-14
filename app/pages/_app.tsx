@@ -1,10 +1,15 @@
-import App, {Container} from 'next/app'
+import App from 'next/app'
 import React from 'react'
-import nextRedux from '../store/redux-config';
+import nextRedux, { Store } from '../store/redux-config';
 import { Provider } from 'react-redux'
 import StoreLayout from '../components/store_layout';
 
-class MyApp extends App {
+interface StateProps {
+  reduxStore: Store
+}
+
+class MyApp extends App<StateProps> {
+
   render () {
     const {Component, pageProps, reduxStore} = this.props
     return (

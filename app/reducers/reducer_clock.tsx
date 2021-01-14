@@ -1,11 +1,12 @@
 import {TICK} from '../actions/types';
+import { Clock } from '../types/store';
 
-const initialState = {
+const initialState: Clock = {
     lastUpdate:0, 
     light: false
 }
 
-export default function Clock_Reducer(state = initialState, action) {
+export default function Clock_Reducer(state = initialState, action): Clock {
     switch (action.type) {
         case TICK:  
             return {
@@ -16,21 +17,3 @@ export default function Clock_Reducer(state = initialState, action) {
         default: return state;
     }
 }
-
-
-/*
-const updated = Object.assign({}, person, {
-  location: 'Moon',
-  interests: Object.assign({}, person.interests, {
-    coffee: 10 // All other interests are copied
-  })
-});
-
-const updated = {
-  ...person,
-  interests: {
-    ...person.interests,
-    coffee: 10,
-  }
-}
-*/
