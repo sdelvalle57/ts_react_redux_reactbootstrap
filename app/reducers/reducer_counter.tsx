@@ -1,5 +1,9 @@
-import {INCREMENT, DECREMENT, RESET} from '../actions/types';
+
 import { Counter } from '../types/store';
+
+const DECREMENT = "DECREMENT";
+const INCREMENT = "INCREMENT";
+const RESET = "RESET";
 
 const initialState: Counter = {
     count:0

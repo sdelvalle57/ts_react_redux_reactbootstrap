@@ -1,9 +1,11 @@
 import React, {PureComponent} from 'react'
 import {connect} from 'react-redux'
-import {startClock, serverRenderClock} from '../actions/action_clock';
+
 import ClockComponent from '../components/clock';
 import Counter from '../components/counter';
 import { Clock } from '../types/store';
+
+import { serverRenderClock, startClock } from '../store/ui/actions';
 
 interface StateProps {
   clock: Clock

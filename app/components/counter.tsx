@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux'
-import { incrementCount, decrementCount, resetCount } from '../actions/action_counter';
-import { Counter } from '../types/store';
+
+import { StoreState } from '../types/store';
+import { getCounter } from '../store/selectors';
+import { decrementCount, incrementCount, resetCount } from '../store/ui/actions';
+
 
 interface StateProps {
-  counter: Counter
+  counter: number
 }
 
 interface DispatchProps {
@@ -21,7 +24,7 @@ class CounterComponent extends Component<Props> {
     const { counter } = this.props
     return (
       <div>
-        <h1>Count: <span>{counter.count}</span></h1>
+        <h1>Count: <span>{counter}</span></h1>
         <button onClick={()=>this.props.increment()}>+1</button>
         <button onClick={()=>this.props.decrement()}>-1</button>
         <button onClick={()=>this.props.reset()}>Reset</button>
@@ -30,7 +33,7 @@ class CounterComponent extends Component<Props> {
   }
 }
 
-const mapDispatchToProps = (dispatch) => {
+const mapDispatchToProps = (dispatch: any): DispatchProps => {
   return {
     increment: () => dispatch(incrementCount()),
     decrement: () => dispatch(decrementCount()),
@@ -38,9 +41,10 @@ const mapDispatchToProps = (dispatch) => {
   }
 }
 
-function mapStateToProps (state) {
-  const {counter} = state
-  return {counter}
+const mapStateToProps = (state: StoreState): StateProps => {
+  return {
+    counter: getCounter(state)
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CounterComponent)

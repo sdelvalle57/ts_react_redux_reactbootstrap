@@ -1,5 +1,6 @@
-import {TICK} from '../actions/types';
 import { Clock } from '../types/store';
+
+const TICK = "TICK";
 
 const initialState: Clock = {
     lastUpdate:0, 
