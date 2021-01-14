@@ -1,4 +1,4 @@
-import { Clock } from '../types/store';
+import { Clock } from '../../types/store';
 
 const TICK = "TICK";
 

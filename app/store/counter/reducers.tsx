@@ -1,5 +1,5 @@
 
-import { Counter } from '../types/store';
+import { Counter } from '../../types/store';
 
 const DECREMENT = "DECREMENT";
 const INCREMENT = "INCREMENT";

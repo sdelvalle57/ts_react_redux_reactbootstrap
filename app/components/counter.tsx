@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 
 import { StoreState } from '../types/store';
-import { getCounter } from '../store/selectors';
-import { decrementCount, incrementCount, resetCount } from '../store/ui/actions';
+import { getCounterWithSelector } from '../store/selectors';
+import { decrementCount, incrementCount, resetCount } from '../store/counter/actions';
 
 
 interface StateProps {
@@ -43,7 +43,7 @@ const mapDispatchToProps = (dispatch: any): DispatchProps => {
 
 const mapStateToProps = (state: StoreState): StateProps => {
   return {
-    counter: getCounter(state)
+    counter: getCounterWithSelector(state)
   }
 }
 

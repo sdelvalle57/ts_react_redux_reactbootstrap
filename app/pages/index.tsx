@@ -5,7 +5,7 @@ import ClockComponent from '../components/clock';
 import Counter from '../components/counter';
 import { Clock } from '../types/store';
 
-import { serverRenderClock, startClock } from '../store/ui/actions';
+import { serverRenderClock, startClock } from '../store/clock/actions';
 
 interface StateProps {
   clock: Clock

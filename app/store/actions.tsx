@@ -1,2 +1,2 @@
-export * from '../actions/action_clock';
-export * from '../actions/action_counter';
+export * from './clock/actions';
+export * from './counter/actions';
