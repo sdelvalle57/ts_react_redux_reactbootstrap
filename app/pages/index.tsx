@@ -3,9 +3,12 @@ import {connect} from 'react-redux'
 
 import ClockComponent from '../components/clock';
 import Counter from '../components/counter';
-import { Clock } from '../types/store';
+import { Clock, StoreState } from '../types/store';
 
-import { serverRenderClock, startClock } from '../store/clock/actions';
+import { renderClock, startClockInterval } from '../store/clock/actions';
+import { getClock } from '../store/clock/selectors';
+
+
 
 interface StateProps {
   clock: Clock
@@ -23,7 +26,7 @@ class Index extends PureComponent<Props> {
 
   static getInitialProps ({ reduxStore, req }) {
     const isServer = !!req
-    reduxStore.dispatch(serverRenderClock(isServer))
+    reduxStore.dispatch(renderClock(isServer, Date.now()))
     return { isServer }
   }
 
@@ -48,14 +51,15 @@ class Index extends PureComponent<Props> {
 
 const mapDispatchToProps = (dispatch) => {
   return{
-    startCounter: () => dispatch(startClock())
+    startCounter: () => dispatch(startClockInterval())
   }
     
 }
 
-const mapStateToProps = (state) => {
-  const { clock } = state
-  return { clock }
+const mapStateToProps = (state: StoreState): StateProps => {
+  return {
+    clock: getClock(state)
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Index)

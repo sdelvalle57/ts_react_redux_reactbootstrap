@@ -1,4 +1,9 @@
+import { getType } from 'typesafe-actions';
+
 import { Clock } from '../../types/store';
+
+import * as actions from '../actions';
+import { RootAction } from '../reducers';
 
 const TICK = "TICK";
 
@@ -7,14 +12,11 @@ const initialState: Clock = {
     light: false
 }
 
-export default function Clock_Reducer(state = initialState, action): Clock {
+export default function clockReducer(state: Clock = initialState, action: RootAction): Clock {
     switch (action.type) {
-        case TICK:  
-            return {
-                ...state,
-                lastUpdate: action.ts,
-                light: !!action.light
-            }
+        case getType(actions.renderClock): 
+            return {...state, lastUpdate: action.payload.ts, light: action.payload.light}
+     
         default: return state;
     }
 }

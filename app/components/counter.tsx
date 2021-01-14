@@ -2,8 +2,8 @@ import React, {Component} from 'react'
 import { connect } from 'react-redux'
 
 import { StoreState } from '../types/store';
-import { getCounterWithSelector } from '../store/selectors';
 import { decrementCount, incrementCount, resetCount } from '../store/counter/actions';
+import { getCounterWithSelector } from '../store/counter/selectors';
 
 
 interface StateProps {

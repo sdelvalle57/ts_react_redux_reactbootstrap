@@ -1,12 +1,17 @@
-const TICK = "TICK";
+import { ThunkCreator } from 'app/types/store';
+import { createAction } from 'typesafe-actions';
 
-export const serverRenderClock = (isServer) => dispatch => {
-    return dispatch({ type: TICK, light: !isServer, ts: Date.now() })
-}
+export const renderClock = createAction('clock/RENDER_set', resolve => {
+    return (isServer: boolean, ts: number) => resolve({light: !isServer, ts })
+})
 
-export const startClock = () => dispatch => {
-  return setInterval(() => {
-    // Dispatch `TICK` every 1 second
-    dispatch({ type: TICK, light: true, ts: Date.now() })
-  }, 1000)
-}
+
+export const startClockInterval: ThunkCreator<any> = () => {
+    return (dispatch) => {
+
+        setInterval(() => {
+            // Dispatch `TICK` every 1 second
+            dispatch(renderClock(false, Date.now()))
+        }, 1000)
+    };
+};
